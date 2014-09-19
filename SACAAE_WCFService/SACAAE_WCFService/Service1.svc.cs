@@ -75,6 +75,23 @@ namespace SACAAE_WCFService
             return results;
         }
 
+        /*Funcion para obtener los profesores de una comision*/
+        public List<GetProfessorsByComisionID> GetComisionProfessors(String comisionID)
+        {
+            List<SACAAE_WCFService.GetProfessorsByComisionID> results = new List<SACAAE_WCFService.GetProfessorsByComisionID>();
+            SACAAEdbDataContext sacaaeDataContext = new SACAAEdbDataContext();
+
+            foreach (SACAAE_WCFService.GetProfessorsByComisionIDResult vProfessor in sacaaeDataContext.GetProfessorsByComisionID(Int16.Parse(comisionID)))
+            {
+                results.Add(new SACAAE_WCFService.GetProfessorsByComisionID()
+                {
+                    Nombre = vProfessor.Nombre,
+                });
+            }
+
+            return results;
+        }
+
 
         public string GetData(string value)
         {

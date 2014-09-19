@@ -156,6 +156,13 @@ namespace SACAAE_WCFService
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), projectID);
 			return ((ISingleResult<GetProfessorsByProjectIDResult>)(result.ReturnValue));
 		}
+
+        [global::System.Data.Linq.Mapping.FunctionAttribute(Name = "dbo.GetProfessorsByComisionID")]
+        public ISingleResult<GetProfessorsByComisionIDResult> GetProfessorsByComisionID([global::System.Data.Linq.Mapping.ParameterAttribute(Name = "ComsionID", DbType = "Int")] System.Nullable<int> comisionID)
+        {
+            IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), comisionID);
+            return ((ISingleResult<GetProfessorsByComisionIDResult>)(result.ReturnValue));
+        }
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Profesores")]
@@ -2017,5 +2024,31 @@ namespace SACAAE_WCFService
 			}
 		}
 	}
+
+    public partial class GetProfessorsByComisionIDResult
+    {
+
+        private string _Nombre;
+
+        public GetProfessorsByComisionIDResult()
+        {
+        }
+
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_Nombre", DbType = "VarChar(250) NOT NULL", CanBeNull = false)]
+        public string Nombre
+        {
+            get
+            {
+                return this._Nombre;
+            }
+            set
+            {
+                if ((this._Nombre != value))
+                {
+                    this._Nombre = value;
+                }
+            }
+        }
+    }
 }
 #pragma warning restore 1591

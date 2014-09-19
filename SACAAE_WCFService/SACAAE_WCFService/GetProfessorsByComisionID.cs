@@ -7,9 +7,10 @@ using System.Runtime.Serialization;
 namespace SACAAE_WCFService
 {
     [DataContract]
-    public class GetProfessorsByComisionID{
-            [DataMember]
-            public string Nombre { get; set; }
-        
+    public class GetProfessorsByProjectID
+    {
+        [DataMember]
+        public string Nombre { get; set; }
+
     }
 }

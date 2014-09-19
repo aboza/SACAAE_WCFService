@@ -26,6 +26,10 @@ namespace SACAAE_WCFService
         List<SACAAE_WCFService.GetProfessorsByProjectID> GetProjectProfessors(String projectID);
 
         [OperationContract]
+        [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "getComisionProfessors/{comisionID}")]
+        List<SACAAE_WCFService.GetProfessorsByComisionID> GetComisionProfessors(String comisionID);
+
+        [OperationContract]
         [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json, UriTemplate = "getData/{value}")]
         string GetData(string value);
 
