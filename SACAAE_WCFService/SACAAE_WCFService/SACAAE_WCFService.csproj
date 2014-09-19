@@ -66,6 +66,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Comision.cs" />
     <Compile Include="GetProfessorsByProjectID.cs" />
     <Compile Include="Project.cs" />
     <Compile Include="SACAAEdb.designer.cs">

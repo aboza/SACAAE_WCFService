@@ -53,6 +53,28 @@ namespace SACAAE_WCFService
             return results;
         }
 
+        /*Funcion para obtener la informacion de las comisiones de la Escuela*/
+        public List<SACAAE_WCFService.Comision.wsComision> GetAllComision()
+        {
+            SACAAEdbDataContext sacaaeDataContext = new SACAAEdbDataContext();
+            List<SACAAE_WCFService.Comision.wsComision> results = new List<SACAAE_WCFService.Comision.wsComision>();
+            System.Globalization.CultureInfo ci = System.Globalization.CultureInfo.GetCultureInfo("en-US");
+
+            foreach (Comisione comision in sacaaeDataContext.Comisiones)
+            {
+                results.Add(new SACAAE_WCFService.Comision.wsComision()
+                {
+                    ID = comision.ID,
+                    Nombre = comision.Nombre,
+                    Inicio = (comision.Inicio == null) ? "" : comision.Inicio.ToString("d", ci),
+                    Fin = (comision.Fin == null) ? "" : comision.Fin.ToString("d", ci),
+                    Estado = comision.Estado
+                });
+            }
+
+            return results;
+        }
+
 
         public string GetData(string value)
         {
